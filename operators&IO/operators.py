@@ -25,6 +25,13 @@ print('or ', a>b or a<b)
 print('not ', not True)
 
 
+print('-----identity operators')
+
+x = ['abs']
+y = ['abs']
+print(x is y) #false as they are diff objects
+print(x == y)
+
 
 
 
