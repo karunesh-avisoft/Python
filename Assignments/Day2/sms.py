@@ -27,7 +27,7 @@ while proceed=='y':
                 print(f'{students[idx]}         {grades[idx]}')
     else:
         name=input('Enter student name:')   # name input
-        exists=True if name in students else False  # duolicate student check
+        exists=True if name in students else False  # duplicate student check
         
         if choice==3:               # Remove
             if not exists:
@@ -38,7 +38,7 @@ while proceed=='y':
                 print('Student removed successfully...')
         else:
             grade=input('Enter the grade of the student:')      # grade input
-            if grade in ('A','B','C','D','E','F','G'):      # invakid grade check
+            if grade in ('A','B','C','D','E','F'):      # invalid grade check
                 if choice==1:
                     if exists:
                         print('Student already exists!!')

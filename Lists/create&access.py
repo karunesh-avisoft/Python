@@ -11,3 +11,7 @@ colors[1]= "purple"
 colors[-1]="orange"
 
 print('colors:',colors)
+
+# using enumerate
+for idx,val in enumerate(colors,1):  # we can give starting value as second arg
+    print(f'{idx}. {val}')
