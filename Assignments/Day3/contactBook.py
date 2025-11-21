@@ -233,7 +233,7 @@ while proceed.lower()=='y':
                     print('Contact-book cleared successfully!')
                     print()
     proceed=input('Show menu?(y/n): ')  
-    while proceed not in list(('y','n')):
+    while proceed not in list(('y','n','Y','N')):
         proceed=input("Enter only 'y' or 'n': ")
     print()             
         
