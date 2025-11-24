@@ -22,3 +22,10 @@ with open('results.log','w+') as file:
     for line in file:
         print(line)
         
+# print all the directories
+from pathlib import Path
+p = Path('/')
+for subdir in p.iterdir():
+    if subdir.is_dir():
+        print(subdir)
+        
