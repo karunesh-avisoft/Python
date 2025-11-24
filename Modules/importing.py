@@ -17,8 +17,8 @@ def generate_randnum(start, end):
     return r.randint(start, end)
 print('Random number b/w 1 & 100:',generate_randnum(1,100))
 # date 
-date=datetime.today().day.
-time=datetime.today().day
+date=datetime.today().date
+time=datetime.today().time
 
 print('Date:',date)
 print('Time:',time)
