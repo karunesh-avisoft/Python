@@ -1,0 +1,14 @@
+{
+    "name": "QATester",
+    "score": 85,
+    "test_cases": [
+        {
+            "id": 1,
+            "status": "pass"
+        },
+        {
+            "id": 2,
+            "status": "fails"
+        }
+    ]
+}
