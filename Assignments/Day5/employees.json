@@ -1,0 +1,34 @@
+{
+    "employees": [
+        {
+            "Name": "Karunesh",
+            "Department": "IT",
+            "Salary": "85931"
+        },
+        {
+            "Name": "Ritik",
+            "Department": "Product",
+            "Salary": "95615"
+        },
+        {
+            "Name": "Harshit",
+            "Department": "Marketing",
+            "Salary": "74151"
+        },
+        {
+            "Name": "Harish",
+            "Department": "Sales",
+            "Salary": "51134"
+        },
+        {
+            "Name": "Naina",
+            "Department": "Audit",
+            "Salary": "40462"
+        },
+        {
+            "Name": "Jacob",
+            "Department": "Finance",
+            "Salary": "86015"
+        }
+    ]
+}
