@@ -1,0 +1,6 @@
+Karunesh	IT
+Ritik	Product
+Harshit	Marketing
+Harish	Sales
+Naina	Audit
+Jacob	Finance
