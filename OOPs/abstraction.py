@@ -2,9 +2,9 @@
 from abc import ABC,abstractmethod
 from math import pi
 
-class Shape(ABC):
+class Shape(ABC):       # abstract class
     @abstractmethod
-    def area():
+    def area():         # abstract method
         pass
     
 class Circle(Shape):
@@ -15,6 +15,7 @@ class Rectangle(Shape):
     def area(self,l=0,b=0):
         return l*b
     
+# shape=Shape() error cannot initiate
 circle=Circle()
 rect=Rectangle()
 
