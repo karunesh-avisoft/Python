@@ -1,0 +1,24 @@
+Word Presence Checker
+---------------------
+1. I saw a car on the road.
+2. The scary movie was very popular.
+    search -> car
+
+Number Extraction from text
+---------------------------
+1. There are 2 apples for 4 persons and 15 bananas.
+2. No digits here, just text and words.
+3. hello01 -05 you got  in01 51marks
+
+Clean Up Messy Text
+-------------------
+1. "Special **characters** should be removed, like @#$%^&*!"
+2. "    Lots     of     spaces     here     "
+
+Basic Email Format Validation
+-----------------------------
+1. user_name@mail-server.com    //Valid
+2. user_name@mail-server.com	//Valid
+3. user+alias@example.co	//Valid
+4. user-name@domain	//Invalid (no period in domain)
+5. user@domain.     //Invalid
