@@ -79,15 +79,15 @@ def main():
             while not acc_no.isdigit() or len(acc_no) not in range(11,17):
                 print('INVALID:Enter a valid 15 digit account number!')
                 acc_no = input("Enter your account number: ")
-            acc_no=int(acc_no)
+            acc_no=int(acc_no.strip())
             # account holder name
-            name = input("Enter account holder name: ")
+            name = input("Enter account holder name: ").strip()
             # balance
             bal = input("Enter initial balance: ")
             while not bal.isdigit() or float(bal)<0:
                 print('INVALID:Enter a valid initial balance!')
                 bal = input("Enter initial balance: ")
-            bal=float(bal)
+            bal=float(bal.strip())
             # storing details
             accounts[acc_no] = BankAccount(acc_no, name, bal)
     # Deposit Amount
@@ -95,16 +95,16 @@ def main():
             # input account number
             acc_no = input("Enter account number: ")
             while not acc_no.isdigit() or len(acc_no) not in range(11,17):
-                print('INVALID:Enter a valid 15 digit account number!\n')
+                print('INVALID:Enter a valid 11-n15 digit account number!\n')
                 acc_no = input("Enter account number: ")
-            acc_no=int(acc_no)
+            acc_no=int(acc_no.strip())
             if acc_no in accounts:
                 # input deposit amount
                 amt = input("Enter deposit amount: ")
                 while not amt.isdigit() or float(amt)<0:
                     print('Enter a valid deposit amount!\n')
                     amt = input("Enter deposit amount: ")
-                amt=float(amt)
+                amt=float(amt.strip())
                 accounts[acc_no].deposit(amt)
             else:
                 print("NOT_FOUND:Account not found!\n")
@@ -115,14 +115,14 @@ def main():
             while not acc_no.isdigit() or len(acc_no) not in range(11,17):
                 print('INVALID:Enter a valid 15 digit account number!\n')
                 acc_no = input("Enter account number: ")
-            acc_no=int(acc_no)
+            acc_no=int(acc_no.strip())
             if acc_no in accounts:
                 # input withdrawl amount
                 amt = input("Enter withdrawal amount: ")
-                while not amt.isdigit() or float(amt)<0:
+                while not amt.isdigit() or float(amt)<=0:
                     print('Invalid withdrawl amount!\n')
                     amt = input("Again! Enter withdrawal amount: ")
-                amt=float(amt)
+                amt=float(amt.strip())
                 accounts[acc_no].withdraw(amt)
             else:
                 print("NOT_FOUND:Account not found!\n")
@@ -133,7 +133,7 @@ def main():
             while not acc_no.isdigit() and len(acc_no) not in range(11,17):
                 print('INVALID:Enter a valid 15 digit account number!\n')
                 acc_no = input("Enter account number: ")
-            acc_no=int(acc_no)
+            acc_no=int(acc_no.strip())
             if acc_no in accounts:
                 accounts[acc_no].check_balance()
             else:
@@ -145,14 +145,14 @@ def main():
             while not acc_no.isdigit() and len(acc_no)!=15:
                 print('INVALID:Enter a valid 15 digit account number!\n')
                 acc_no = input("Enter account number: ")
-            acc_no=int(acc_no)
+            acc_no=int(acc_no.strip())
             if acc_no in accounts:
                 accounts[acc_no].display_details()
             else:
                 print("NOT_FOUND:Account not found!\n")
     # Good-bye
         elif choice == '6':
-            print("\n***Thank you for using our banking system!***")
+            print("\n***Thank you for using our banking system!***\n")
             break
         else:
             print("\nInvalid choice! Please try again.")
