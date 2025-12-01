@@ -5,7 +5,14 @@ def word_checker():
     print("\n=========== Word Presence Checker ===========")
     sentence=input('Enter any sentence: ').strip()
     word=input('Enter the word to search: ').strip()
-    pattern=r'\b'+word+r'\b'
+    if word=='' or sentence=='':
+        print('\tWRONG:You entered wrong input!')
+        return    
+    # safe search with whole-word boundaries for special chars
+    pattern = r'(?<!\w)' + re.escape(word) + r'(?!\w)'
+    # this pattern means
+    # - the word should not starts or ends with any letter, number and underscore
+    
     found=re.search(pattern,sentence)
     if found:
         print(f"\tFOUND:'{word}' exists at {found.span()[0]} in the sentence.")
@@ -16,9 +23,12 @@ def word_checker():
 # Task 2 — Number Extraction from Text
 def number_extractor():
     print("\n=========== Number Extractor ===========")
-    # [^a-zA-Z0-9] -> \W
+    # [^a-zA-Z0-9] -> \W non-word chars means special ones
     para=input('Enter a paragraph: ')
-    found=re.findall(r'(?<!\w)-?\d+\W\b',para)   # * will include if there is no number
+    found=re.findall(r'(?<!\S)-?\d+(?!\S)',para)  
+    # in this case pattern means the digit should not starts or ends with any non space char
+    #  also dealig with start or end of string which restricted by \s
+     
     print(f"\tNUMBERS:",found)
     print('='*50)   
       
@@ -55,9 +65,9 @@ def text_cleaner():
 def email_validator():
     print("\n=========== Email Validator ===========")
     
-    email=input('Enter an email: ')
+    email=input('Enter an email: ').strip()
     
-    if len(re.findall('[@.]',email))>1 and re.search('^..$',email) and re.search('^[~!@#$%^&*.|\/?]',email) is None:
+    if len(re.findall('[@.]',email))>1 and (re.search('^..$',email) and re.search('^[~!@#$%^&*.|\/?]',email)) is None:
         print('\tVALID: E-mail is in the valid format.')
     else:
         print('\tINVALID: E-mail is in invalid format!')

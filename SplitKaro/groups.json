@@ -1,0 +1,46 @@
+{
+    "1": {
+        "name": "Jammu",
+        "members": [
+            "1",
+            "2",
+            "3"
+        ],
+        "bills": [
+            {
+                "payer": "1",
+                "amount": 500.0,
+                "participants": [
+                    "2",
+                    "3"
+                ],
+                "description": "Burner"
+            },
+            {
+                "payer": "2",
+                "amount": 250.0,
+                "participants": [
+                    "1"
+                ],
+                "description": "Settlement"
+            }
+        ]
+    },
+    "2": {
+        "name": "Channi",
+        "members": [
+            "1",
+            "2",
+            "3"
+        ],
+        "bills": []
+    },
+    "3": {
+        "name": "Avisoft",
+        "members": [
+            "2",
+            "3"
+        ],
+        "bills": []
+    }
+}
