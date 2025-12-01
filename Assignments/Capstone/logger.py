@@ -9,11 +9,11 @@ load_dotenv()
 
 # directory and file paths
 directory = Path.cwd() / os.getenv('PROJECT_DIR')
-transactions = os.getenv('LOG_FILE')
+transactions = directory / os.getenv('LOG_FILE')
 
 # File handler (rotating)
 file_handler = RotatingFileHandler(
-    os.path.join(directory, "transactions.log"),
+    transactions,
     maxBytes=1_000_000,
     backupCount=5
 )
