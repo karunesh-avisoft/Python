@@ -1,12 +1,12 @@
-2025-12-02 01:06:59,722 - INFO - Inventory data saved successfully.
-2025-12-02 01:14:19,916 - INFO - Inventory data saved successfully.
-2025-12-02 01:22:32,410 - INFO - Inventory data loaded successfully.
-2025-12-02 01:22:57,912 - INFO - Inventory data loaded successfully.
-2025-12-02 01:23:09,223 - INFO - Inventory data loaded successfully.
-2025-12-02 01:23:29,115 - INFO - Inventory data loaded successfully.
-2025-12-02 01:24:13,125 - INFO - Inventory data loaded successfully.
-NEW_ITEM | Product ID: 101 | Change: 50 | Previous Qty: 0
-2025-12-02 02:07:10,735 - INFO - Transaction logged: NEW_ITEM | Product ID: 101 | Change: 50 | Previous Qty: 0
-NEW_ITEM | Product ID: 101 | Change: 50 | Previous Qty: 0
-2025-12-02 02:08:39,820 - INFO - NEW_ITEM | Product ID: 101 | Change: 50 | Previous Qty: 0
-2025-12-02 02:10:24,431 - ERROR - log() missing 1 required positional argument: 'msg'
+2025-12-02 17:53:55,082 - INFO - Inventory viewed successfully.
+2025-12-02 17:54:16,910 - INFO - DELETE_ITEM | Product ID: 1545 | Change in Quantity(+/-): -45 | Previous Qty: 45
+2025-12-02 17:54:23,147 - INFO - Inventory viewed successfully.
+2025-12-02 17:55:37,991 - ERROR - Error decoding inventory JSON data. Returning empty inventory.
+2025-12-02 17:55:37,992 - INFO - Inventory viewed successfully.
+2025-12-02 17:55:43,581 - INFO - Data restored from backup successfully.
+2025-12-02 17:55:48,537 - INFO - Inventory viewed successfully.
+2025-12-02 17:56:58,483 - INFO - Inventory report generated successfully.
+2025-12-02 17:59:03,334 - INFO - Inventory viewed successfully.
+2025-12-02 18:05:11,876 - INFO - Inventory viewed successfully.
+2025-12-02 18:06:01,191 - WARNING - Product ID 564 not found in inventory.
+2025-12-02 18:06:50,409 - INFO - Inventory viewed successfully.

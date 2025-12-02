@@ -54,5 +54,19 @@
         "quantity": 50,
         "price": 99.0,
         "last_restock": "2025-02-10"
+    },
+    "3943": {
+        "name": "Warm Bottle",
+        "category": "Utensils",
+        "quantity": 30,
+        "price": 400.0,
+        "last_restock": "2025-12-02"
+    },
+    "686": {
+        "name": "hey",
+        "category": "22w2w",
+        "quantity": 54,
+        "price": 334.0,
+        "last_restock": "2025-12-02"
     }
 }
