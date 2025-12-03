@@ -1,12 +1,83 @@
-2025-12-02 17:53:55,082 - INFO - Inventory viewed successfully.
-2025-12-02 17:54:16,910 - INFO - DELETE_ITEM | Product ID: 1545 | Change in Quantity(+/-): -45 | Previous Qty: 45
-2025-12-02 17:54:23,147 - INFO - Inventory viewed successfully.
-2025-12-02 17:55:37,991 - ERROR - Error decoding inventory JSON data. Returning empty inventory.
-2025-12-02 17:55:37,992 - INFO - Inventory viewed successfully.
-2025-12-02 17:55:43,581 - INFO - Data restored from backup successfully.
-2025-12-02 17:55:48,537 - INFO - Inventory viewed successfully.
-2025-12-02 17:56:58,483 - INFO - Inventory report generated successfully.
-2025-12-02 17:59:03,334 - INFO - Inventory viewed successfully.
-2025-12-02 18:05:11,876 - INFO - Inventory viewed successfully.
-2025-12-02 18:06:01,191 - WARNING - Product ID 564 not found in inventory.
-2025-12-02 18:06:50,409 - INFO - Inventory viewed successfully.
+2025-12-03 11:17:01,177 - INFO - No transactions found in the log.
+2025-12-03 11:17:34,549 - WARNING - Product name is invalid. Please enter a valid name string.
+2025-12-03 11:18:11,911 - WARNING - Product name is invalid. Please enter a valid name string.
+2025-12-03 11:18:21,041 - WARNING - Product name is invalid. Please enter a valid name string.
+2025-12-03 11:19:24,093 - WARNING - Product name is invalid. Please enter a valid name string.
+2025-12-03 11:20:17,873 - WARNING - Product category cannot be empty or numeric. Please enter a valid category.
+2025-12-03 11:22:46,376 - INFO - Inventory viewed successfully.
+2025-12-03 11:25:48,714 - INFO - Inventory viewed successfully.
+2025-12-03 11:29:56,609 - INFO - User initiated exit.
+2025-12-03 11:30:08,642 - INFO - Inventory viewed successfully.
+2025-12-03 11:30:16,411 - INFO - Exit after operations completed successfully.
+2025-12-03 11:30:36,313 - WARNING - Product name is invalid. Please enter a valid name string.
+2025-12-03 11:31:11,275 - INFO - User initiated exit.
+2025-12-03 11:32:42,653 - WARNING - Product category is invalid. Please enter a valid category string.
+2025-12-03 11:33:28,449 - WARNING - Quantity cannot be negative. Please enter a non-negative integer.
+2025-12-03 11:33:46,352 - WARNING - Price cannot be negative. Please enter a valid price.
+2025-12-03 11:34:25,897 - WARNING - Price cannot be negative. Please enter a valid price.
+2025-12-03 11:36:12,716 - WARNING - Invalid date format. Please enter date in YYYY-MM-DD format or leave blank for today.
+2025-12-03 11:36:52,216 - INFO - NEW_ITEM | Product ID: IT_4105 | Change in Quantity(+/-): 549 | Previous Qty: 0
+2025-12-03 11:44:41,249 - INFO - User initiated exit.
+2025-12-03 11:44:58,113 - INFO - Inventory viewed successfully.
+2025-12-03 11:45:13,665 - INFO - Exit after operations completed successfully.
+2025-12-03 11:46:49,445 - WARNING - Product with this name already exists in inventory. Use update stock option instead.
+2025-12-03 11:46:49,486 - INFO - NEW_ITEM | Product ID: IT_0212 | Change in Quantity(+/-): 50 | Previous Qty: 0
+2025-12-03 11:50:40,963 - INFO - Exit after operations completed successfully.
+2025-12-03 11:50:54,629 - INFO - Inventory viewed successfully.
+2025-12-03 11:51:07,096 - INFO - Exit after operations completed successfully.
+2025-12-03 11:51:16,825 - WARNING - Product with this name already exists in inventory. Use update stock option instead.
+2025-12-03 11:51:16,828 - WARNING - Product with this name already exists in inventory. Use update stock option instead.
+2025-12-03 11:53:24,417 - INFO - Exit after operations completed successfully.
+2025-12-03 11:54:05,845 - INFO - Inventory viewed successfully.
+2025-12-03 11:54:11,753 - INFO - Exit after operations completed successfully.
+2025-12-03 11:54:26,895 - WARNING - Invalid product ID format. Please enter a numeric value.
+2025-12-03 11:56:22,270 - INFO - User initiated exit.
+2025-12-03 12:01:59,168 - INFO - Inventory viewed successfully.
+2025-12-03 12:02:04,964 - INFO - Exit after operations completed successfully.
+2025-12-03 12:04:21,632 - INFO - User initiated exit.
+2025-12-03 12:07:14,369 - INFO - Inventory viewed successfully.
+2025-12-03 12:07:16,734 - INFO - Exit after operations completed successfully.
+2025-12-03 12:16:27,524 - INFO - User initiated exit.
+2025-12-03 12:16:46,586 - INFO - Exit after operations completed successfully.
+2025-12-03 12:16:49,324 - INFO - Inventory viewed successfully.
+2025-12-03 12:16:59,559 - INFO - Exit after operations completed successfully.
+2025-12-03 12:17:12,421 - WARNING - Invalid product ID format. Please enter a numeric value.
+2025-12-03 12:17:24,621 - WARNING - Invalid product ID format. Please enter a numeric value.
+2025-12-03 12:18:10,760 - INFO - DELETE_ITEM | Product ID: IT_3943 | Change in Quantity(+/-): -30 | Previous Qty: 30
+2025-12-03 12:18:17,167 - INFO - Exit after operations completed successfully.
+2025-12-03 12:19:42,911 - INFO - Inventory viewed successfully.
+2025-12-03 12:27:44,400 - INFO - Exit after operations completed successfully.
+2025-12-03 12:30:18,814 - INFO - Running scheduled weekly backup...
+2025-12-03 12:30:28,823 - INFO - Running scheduled weekly backup...
+2025-12-03 12:30:38,829 - INFO - Running scheduled weekly backup...
+2025-12-03 12:30:43,263 - INFO - User initiated exit.
+2025-12-03 12:31:25,798 - INFO - Running scheduled weekly backup...
+2025-12-03 12:31:30,806 - INFO - Running scheduled weekly backup...
+2025-12-03 12:31:35,812 - INFO - Running scheduled weekly backup...
+2025-12-03 12:31:40,867 - INFO - Running scheduled weekly backup...
+2025-12-03 12:31:45,880 - INFO - Running scheduled weekly backup...
+2025-12-03 12:31:50,898 - INFO - Running scheduled weekly backup...
+2025-12-03 12:31:55,903 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:00,931 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:05,947 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:10,951 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:15,958 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:20,971 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:25,993 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:30,998 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:36,017 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:41,031 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:46,037 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:51,058 - INFO - Running scheduled weekly backup...
+2025-12-03 12:32:56,066 - INFO - Running scheduled weekly backup...
+2025-12-03 12:33:01,072 - INFO - Running scheduled weekly backup...
+2025-12-03 12:33:04,449 - INFO - User initiated exit.
+2025-12-03 12:33:23,912 - INFO - Inventory viewed successfully.
+2025-12-03 12:33:26,082 - INFO - Exit after operations completed successfully.
+2025-12-03 12:33:43,288 - WARNING - Invalid product ID format. Please enter a numeric value.
+2025-12-03 12:36:10,245 - INFO - Exit after operations completed successfully.
+2025-12-03 12:36:16,010 - INFO - Inventory viewed successfully.
+2025-12-03 12:37:55,921 - INFO - Exit after operations completed successfully.
+2025-12-03 12:38:28,960 - INFO - Inventory viewed successfully.
+2025-12-03 12:38:48,841 - INFO - Exit after operations completed successfully.
+2025-12-03 13:08:06,723 - INFO - User initiated exit.

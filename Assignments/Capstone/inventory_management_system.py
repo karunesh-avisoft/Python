@@ -83,13 +83,14 @@ def restore_data():
 
 # WEEKLY BACKUP SCHEDULER
 def weekly_backup():
+    print("\n"+"="*30)
     logging.info("Running scheduled weekly backup...")
     backup_data()
 
 # scheduler thread
 def run_scheduler():
     schedule.every().monday.at("02:00").do(weekly_backup)
-    # schedule.every(10).seconds.do(weekly_backup)  # for testing, runs every 10 seconds       
+    # schedule.every(5).seconds.do(weekly_backup)  # for testing, runs every 5 seconds       
 
     while not stop_scheduler.is_set():
         schedule.run_pending()
@@ -122,12 +123,14 @@ def view_transactions():
     try:
         with open(transactions, 'r') as f:
             logs = f.readlines()
-            
-            print("\n"+"="*30, "TRANSACTION LOGS", "="*30)
-            for log in logs: 
-                    print(log.strip())
-            print("="*78)
-        logging.debug("Transaction log viewed successfully.")   
+            if logs:
+                print("\n"+"="*30, "TRANSACTION LOGS", "="*30)
+                for log in logs: 
+                        print(log.strip())
+                print("="*78)
+                logging.debug("Transaction log viewed successfully.")
+            else:
+                logging.info("No transactions found in the log.")   
     except Exception as e:
         logging.error(e)
 
@@ -142,68 +145,94 @@ def clear_transactions():
 
 # INVENTORY MANAGEMENT FUNCTIONS
 def add_new_product():
-    inv_data = load_data()
-    # Get product details
-    product_details = validate_product_data()
-
-    # Generate unique product ID
-    product_id=str(random.randint(1,5000))
-    # Ensure unique product ID
-    while product_id in inv_data:
-        product_id=str(random.randint(1,5000))
-
-    # Add to inventory 
+    # abort adding new
+    print("\nAdding new product. To abort, press Ctrl+C.")
     try:
-        for values in inv_data.values():
-            # check for duplicate product names
-            if product_details['name'].lower() == values['name'].lower():
-                logging.warning("Product with this name already exists in inventory. Use update stock option instead.")
+        inv_data = load_data()
+        # Get product details
+        product_details = validate_product_data(inv_data)
+
+        # Generate unique product ID
+        product_id=str(random.randint(1,5000))
+        # Ensure unique product ID
+        while product_id in inv_data:
+            product_id=str(random.randint(1,5000))
+        product_id = "IT_" + product_id.zfill(4)  # pad with leading zeros to make it 4 digits
+        # Add to inventory 
         inv_data[product_id] = product_details
         save_data(inv_data)
         log_transaction('NEW_ITEM', product_id, product_details['quantity'], 0)
+    except KeyboardInterrupt:
+        logging.debug("Add new product operation aborted by user.")
+        print("\n*** Adding new product aborted by user. ***")
     except Exception as e:
         logging.error(e)
+    else:
+        another = input(f"\nWant to add another product? (y/n): ").strip().lower()
+        while another not in ['y', 'n']:    
+            another = input("Invalid input. Please enter 'y' for yes or 'n' for no: ").strip().lower()
+        add_new_product() if another == 'y' else None
     
-def update_stock(product_id, qty_change):
-    inv_data = load_data()
+def update_stock():
+    print("\nUpdating product stock. To abort, press Ctrl+C.")
     try:
+        inv_data = load_data()
+        product_id = validate_product_id(inv_data)
+        qty_change = validate_qty_change()
         if product_id in inv_data:
             previous_qty = inv_data[product_id]['quantity']
             if inv_data[product_id]['quantity'] + qty_change < 0:
                 logging.warning(f"Insufficient stock to remove the specified quantity. Available quantity: {inv_data[product_id]['quantity']}")
                 return
-            inv_data[product_id]['quantity'] += qty_change
-            if inv_data[product_id]['quantity']==0:
-                delete_product(product_id)
-            else:   
-                inv_data[product_id]['last_restock'] = date.today().isoformat()
-                save_data(inv_data)
+            inv_data[product_id]['quantity'] += qty_change   
+            inv_data[product_id]['last_restock'] = date.today().isoformat()
+            save_data(inv_data)
             log_transaction('STOCK_UPDATE', product_id, qty_change, previous_qty)
         else:
             logging.warning(f"Product ID {product_id} not found in inventory.")
+    except KeyboardInterrupt:
+        logging.debug("Update product operation aborted by user.")
+        print("\n*** Update product operation aborted by user. ***")
     except Exception as e:
         logging.error(e)
+    else:
+        another = input(f"\nWant to update another product? (y/n): ").strip().lower()
+        while another not in ['y', 'n']:    
+            another = input("Invalid input. Please enter 'y' for yes or 'n' for no: ").strip().lower()
+        update_stock() if another == 'y' else None
 
-def search_product(search_term):
-    inv_data = load_data()
-    results = {}
+def search_product():
+    print("\nSearching product. To abort, press Ctrl+C.")
+    search_term = validate_search_input()
+
     try:
+        inv_data = load_data()
+        results = {}
         for pid, details in inv_data.items():
             if (search_term.lower() in details['name'].lower()) or (search_term.lower() in details['category'].lower()):
                 results[pid] = details
         if results:
             logging.info(f"Found {len(results)} matching products.")
-            return results
+            display_data(results, 'SEARCH RESULTS')
         else:
             logging.info("No matching products found.")
+    except KeyboardInterrupt:
+        logging.debug("Search product operation aborted by user.")
+        print("\n*** Search product operation aborted by user. ***")
     except Exception as e:
         logging.error(e)
-        return {}
+    else:
+        another = input(f"\nWant to search for another product? (y/n): ").strip().lower()
+        while another not in ['y', 'n']:    
+            another = input("Invalid input. Please enter 'y' for yes or 'n' for no: ").strip().lower()
+        search_product() if another == 'y' else None
 
 # additional function to delete a product  
-def delete_product(product_id):
-    inv_data = load_data()
+def delete_product():
+    print("\nDeleting product. To abort, press Ctrl+C.")
     try:
+        inv_data = load_data()
+        product_id = validate_product_id(inv_data)
         if product_id in inv_data:
             change_qty = -inv_data[product_id]['quantity']
             previous_qty = inv_data[product_id]['quantity']
@@ -212,8 +241,16 @@ def delete_product(product_id):
             log_transaction('DELETE_ITEM', product_id, change_qty, previous_qty)
         else:
             logging.warning(f"Product ID {product_id} not found in inventory.")
+    except KeyboardInterrupt:
+        logging.debug("Delete product operation aborted by user.")
+        print("\n*** Delete product operation aborted by user. ***")
     except Exception as e:
         logging.error(e)
+    else:
+        another = input(f"\nWant to delete another product? (y/n): ").strip().lower()
+        while another not in ['y', 'n']:    
+            another = input("Invalid input. Please enter 'y' for yes or 'n' for no: ").strip().lower()
+        delete_product() if another == 'y' else None
 
 
 # REPORTING FUNCTIONS
@@ -242,29 +279,24 @@ def generate_inventory_report():
     except Exception as e:
         logging.error(e)
 
-def display_inventory(format='table', category=None, stock_status=None):
-    inv_data = load_data()
-    # filtered data based on category and stock status
-    filtered_data={}
-    for pid, details in inv_data.items():
-        if category and category.lower() not in inv_data[pid]['category'].lower():
-            continue
-        if stock_status=='in_stock' and inv_data[pid]['quantity']<=0:
-            continue
-        if stock_status=='out_of_stock' and inv_data[pid]['quantity']>0:
-            continue
-        filtered_data[pid]=details
-
+def display_inventory(category=None, stock_status=None):
     try:
-        if format=='table':
+        inv_data = load_data()
+        # filtered data based on category and stock status
+        filtered_data={}
+        for pid, details in inv_data.items():
+            if category and category.lower() not in inv_data[pid]['category'].lower():
+                continue
+            if stock_status=='in_stock' and inv_data[pid]['quantity']<=0:
+                continue
+            if stock_status=='out_of_stock' and inv_data[pid]['quantity']>0:
+                continue
+            filtered_data[pid]=details
+        if filtered_data:
             display_data(filtered_data, 'INVENTORY DATA')
+            logging.info("Inventory viewed successfully.")
         else:
-            print("\n"+"="*33, "INVENTORY DATA", "="*33)
-            for pid, details in filtered_data.items():
-                print(f"ID: {pid} | Name: {details['name']} | Category: {details['category']} | Quantity: {details['quantity']} | Price: {details['price']} | Last Restock: {details['last_restock']}")
-            print("="*84)
-            
-        logging.info("Inventory viewed successfully.")
+            logging.info("No products found matching the specified criteria.")
     except Exception as e:
         logging.error(e)
 

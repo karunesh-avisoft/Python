@@ -27,43 +27,58 @@ def main():
             while not choice.isdigit() or int(choice) not in range(1, 10):
                 choice = input("Invalid choice. Please enter a number between 1 and 9: ").strip()
 
-            # process user choice
+            # Process user choice
+            # view inventory
             if choice == '1':
-                display_inventory()
+                # how do you want to display? all or filtered
+                print("\nView Inventory Options:")
+                print("1. View All Items")  
+                print("2. Filter by Category")
+                print("3. Filter by Stock Status")
+                view_choice = input("Enter your view choice (1-3): ").strip()    
+                while view_choice not in ['1', '2', '3']:
+                    view_choice = input("Invalid choice. Please enter 1, 2, or 3: ").strip()     
+                # call display inventory with appropriate filters  
+                if view_choice == '1':
+                    display_inventory()
+                elif view_choice == '2':
+                    category = validate_category_input()
+                    display_inventory(category=category)
+                elif view_choice == '3':
+                    stock_status = input("Enter stock status to filter (in/out): ").strip().lower()
+                    while stock_status not in ['in', 'out']:
+                        stock_status = input("Invalid input. Please enter 'in-stock' or 'out-of-stock': ").strip().lower()
+                    display_inventory(stock_status=stock_status)
 
+            # add new product
             elif choice == '2':
-                while True:
-                    add_new_product()
-                    another = input("\nDo you want to add another product? (y/n): ").strip().lower()
-                    while another not in ['y', 'n']:    
-                        another = input("Invalid input. Please enter 'y' for yes or 'n' for no: ").strip().lower()
-                    if another == 'n':
-                        break
+                add_new_product() 
 
+            # update product stock
             elif choice == '3':
-                product_id = input("Enter product ID to update stock: ").strip()
-                qty_change = int(input("Enter quantity change (positive to add, negative to remove): ").strip())
-                update_stock(product_id, qty_change)
+                update_stock()  
 
+            # search product
             elif choice == '4':
-                search_term = input("Enter product name or category to search: ").strip()
-                found_data = search_product(search_term)
-                if found_data:
-                    display_data(found_data, 'SEARCH RESULTS')
+                search_product()
 
+            # delete product
             elif choice == '5':
-                product_id = input("Enter product ID to delete: ").strip()
-                delete_product(product_id)
+                delete_product()
 
+            # generate inventory report
             elif choice == '6':
                 generate_inventory_report()
 
+            # view transaction logs
             elif choice == '7':
                 view_transactions()
 
+            # restore data from backup
             elif choice == '8':
                 restore_data()
 
+            # exit the system   
             elif choice == '9':
                 print("*** Exiting the system. Goodbye! ***")
                 break
@@ -72,12 +87,17 @@ def main():
             consent = input("\nDo you want to perform another operation? (y/n): ").strip().lower()
             while consent not in ['y', 'n']:
                 consent = input("Invalid input. Please enter 'y' for yes or 'n' for no: ").strip().lower()
+                if consent == 'n':
+                    logging.info("Exit after operations completed successfully.")
+                    break
 
         # except keyboard and EOF errors to exit gracefully
         except (KeyboardInterrupt, EOFError):
+            print()
+            logging.info("User initiated exit.")
             print("\n*** Exiting the system. Goodbye! ***")
             break
-    
+            
     # stop the scheduler thread before exiting
     stop_scheduler_thread()
 
