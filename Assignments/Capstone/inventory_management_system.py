@@ -147,23 +147,22 @@ def clear_transactions():
 def add_new_product():
     # abort adding new
     print("\nAdding new product. To abort, press Ctrl+C.")
+    print('_'*40)
     try:
         inv_data = load_data()
         # Get product details
         product_details = validate_product_data(inv_data)
 
         # Generate unique product ID
-        product_id=str(random.randint(1,5000))
-        # Ensure unique product ID
-        while product_id in inv_data:
-            product_id=str(random.randint(1,5000))
-        product_id = "IT_" + product_id.zfill(4)  # pad with leading zeros to make it 4 digits
+        product_id=max(int(key) for key in inv_data.keys()) + 1
+        
         # Add to inventory 
         inv_data[product_id] = product_details
         save_data(inv_data)
         log_transaction('NEW_ITEM', product_id, product_details['quantity'], 0)
     except KeyboardInterrupt:
         logging.debug("Add new product operation aborted by user.")
+        print('_'*40)
         print("\n*** Adding new product aborted by user. ***")
     except Exception as e:
         logging.error(e)
@@ -175,6 +174,7 @@ def add_new_product():
     
 def update_stock():
     print("\nUpdating product stock. To abort, press Ctrl+C.")
+    print('_'*40)
     try:
         inv_data = load_data()
         product_id = validate_product_id(inv_data)
@@ -192,6 +192,7 @@ def update_stock():
             logging.warning(f"Product ID {product_id} not found in inventory.")
     except KeyboardInterrupt:
         logging.debug("Update product operation aborted by user.")
+        print('_'*40)
         print("\n*** Update product operation aborted by user. ***")
     except Exception as e:
         logging.error(e)
@@ -203,8 +204,8 @@ def update_stock():
 
 def search_product():
     print("\nSearching product. To abort, press Ctrl+C.")
+    print('_'*40)
     search_term = validate_search_input()
-
     try:
         inv_data = load_data()
         results = {}
@@ -218,6 +219,7 @@ def search_product():
             logging.info("No matching products found.")
     except KeyboardInterrupt:
         logging.debug("Search product operation aborted by user.")
+        print('_'*40)
         print("\n*** Search product operation aborted by user. ***")
     except Exception as e:
         logging.error(e)
@@ -287,9 +289,9 @@ def display_inventory(category=None, stock_status=None):
         for pid, details in inv_data.items():
             if category and category.lower() not in inv_data[pid]['category'].lower():
                 continue
-            if stock_status=='in_stock' and inv_data[pid]['quantity']<=0:
+            if stock_status=='in' and inv_data[pid]['quantity']<=0:
                 continue
-            if stock_status=='out_of_stock' and inv_data[pid]['quantity']>0:
+            if stock_status=='out' and inv_data[pid]['quantity']>0:
                 continue
             filtered_data[pid]=details
         if filtered_data:

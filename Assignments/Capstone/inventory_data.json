@@ -1,79 +1,65 @@
 {
-    "IT_0101": {
+    "1": {
         "name": "Wireless Mouse",
         "category": "Electronics",
         "quantity": 25,
         "price": 599.99,
         "last_restock": "2025-01-10"
     },
-    "IT_0102": {
+    "2": {
         "name": "A4 Notebook",
         "category": "Stationery",
         "quantity": 120,
         "price": 45.0,
         "last_restock": "2025-02-02"
     },
-    "IT_0103": {
+    "3": {
         "name": "Cotton T-Shirt",
         "category": "Clothing",
         "quantity": 60,
         "price": 299.5,
         "last_restock": "2025-01-25"
     },
-    "IT_0104": {
+    "4": {
         "name": "Chocolate Cookies",
         "category": "Food",
         "quantity": 40,
         "price": 150.0,
         "last_restock": "2025-02-11"
     },
-    "IT_0105": {
+    "5": {
         "name": "USB-C Charger",
         "category": "Electronics",
         "quantity": 15,
         "price": 899.0,
         "last_restock": "2025-01-15"
     },
-    "IT_0106": {
+    "6": {
         "name": "Ball Pen Pack (10 pcs)",
         "category": "Stationery",
         "quantity": 200,
         "price": 75.0,
         "last_restock": "2025-02-01"
     },
-    "IT_0107": {
+    "7": {
         "name": "Denim Jeans",
         "category": "Clothing",
         "quantity": 35,
         "price": 1299.0,
         "last_restock": "2025-01-28"
     },
-    "IT_0108": {
+    "8": {
         "name": "Protein Energy Bar",
         "category": "Food",
         "quantity": 50,
         "price": 99.0,
         "last_restock": "2025-02-10"
     },
-    "IT_0686": {
-        "name": "hey",
-        "category": "22w2w",
-        "quantity": 54,
-        "price": 334.0,
-        "last_restock": "2025-12-02"
-    },
-    "IT_4105": {
-        "name": "Villan Red",
-        "category": "Fragrance",
-        "quantity": 549,
-        "price": 499.0,
-        "last_restock": "2025-12-03"
-    },
-    "IT_0212": {
-        "name": "Villan Red",
-        "category": "Perfume",
-        "quantity": 50,
-        "price": 499.0,
+    "9": {
+        "name": "Dark Chocolate",
+        "category": "Food",
+        "quantity": 9,
+        "price": 120.0,
         "last_restock": "2025-12-03"
     }
 }
