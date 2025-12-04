@@ -31,25 +31,30 @@ def main():
             # view inventory
             if choice == '1':
                 # how do you want to display? all or filtered
-                print("\nView Inventory Options:")
-                print("1. View All Items")  
-                print("2. Filter by Category")
-                print("3. Filter by Stock Status")
-                view_choice = input("Enter your view choice (1-3): ").strip()    
-                while view_choice not in ['1', '2', '3']:
-                    view_choice = input("Invalid choice. Please enter 1, 2, or 3: ").strip()     
-                # call display inventory with appropriate filters  
-                if view_choice == '1':
-                    display_inventory()
-                elif view_choice == '2':
-                    category = validate_category_input()
-                    display_inventory(category=category)
-                elif view_choice == '3':
-                    stock_status = input("Enter stock status to filter (in/out): ").strip().lower()
-                    while stock_status not in ['in', 'out']:
-                        stock_status = input("Invalid input. Please enter 'in-stock' or 'out-of-stock': ").strip().lower()
-                    display_inventory(stock_status=stock_status)
-
+                try:   
+                    print("\nView Inventory Options:")
+                    print("1. View All Items")  
+                    print("2. Filter by Category")
+                    print("3. Filter by Stock Status")
+                    view_choice = input("Enter your view choice (1-3): ").strip()    
+                    while view_choice not in ['1', '2', '3']:
+                        view_choice = input("Invalid choice. Please enter 1, 2, or 3: ").strip()     
+                    # call display inventory with appropriate filters  
+                    if view_choice == '1':
+                        display_inventory()
+                    elif view_choice == '2':
+                        category = validate_category_input()
+                        display_inventory(category=category)
+                    elif view_choice == '3':
+                        stock_status = input("Enter stock status to filter (in/out): ").strip().lower()
+                        while stock_status not in ['in', 'out']:
+                            stock_status = input("Invalid input. Please enter 'in-stock' or 'out-of-stock': ").strip().lower()
+                        display_inventory(stock_status=stock_status)
+                except (KeyboardInterrupt, EOFError):
+                    print()
+                    logging.info("User cancelled viewing inventory.")
+                    continue
+                
             # add new product
             elif choice == '2':
                 add_new_product() 

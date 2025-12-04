@@ -11,7 +11,6 @@ def display_data(data, header):
         print(f"{pid:<10} {details['name']:<25} {details['category']:<15} {details['quantity']:<10} {details['price']:<10} {details['last_restock']:<12}")
     print("="*88)
     
-
 # VALIDATORS
 # search input validator
 def validate_search_input():
@@ -22,14 +21,16 @@ def validate_search_input():
         else:
             logging.warning("Search term cannot be empty or numeric. Please enter a valid name or category.")
 
-
 # product ID validator
 def validate_product_id():
     while True:
-        product_id = input("Enter product ID (eg.101): ").strip()
+        product_id = input("Enter product ID (eg. 1): ").strip()
         try:
-            product_id=int(product_id)
-            return product_id
+            product_id = int(product_id)
+            if product_id in inventory_data:
+                return product_id
+            else:
+                logging.warning(f"Product ID {product_id} not found in inventory. Please enter a valid product ID.") 
         except ValueError:
             logging.warning("Invalid product ID format. Please enter a numeric value.")
 
@@ -59,7 +60,7 @@ def validate_name_input():
 def validate_category_input():
     while True:
         category=input("Enter product category: ").strip()
-        pattern = r'^[A-Za-z0-9\(\)]+$'  # allows letters, numbers, spaces, and some special characters
+        pattern = r'^[A-Za-z0-9\s\(\)]+$'  # allows letters, numbers, spaces, and some special characters
         if re.match(pattern, category) and not category.isdigit() and category !='':
             return category
         else:
