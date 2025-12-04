@@ -179,17 +179,14 @@ def update_stock():
         inv_data = load_data()
         product_id = validate_product_id(inv_data)
         qty_change = validate_qty_change()
-        if product_id in inv_data:
-            previous_qty = inv_data[product_id]['quantity']
-            if inv_data[product_id]['quantity'] + qty_change < 0:
-                logging.warning(f"Insufficient stock to remove the specified quantity. Available quantity: {inv_data[product_id]['quantity']}")
-                return
-            inv_data[product_id]['quantity'] += qty_change   
-            inv_data[product_id]['last_restock'] = date.today().isoformat()
-            save_data(inv_data)
-            log_transaction('STOCK_UPDATE', product_id, qty_change, previous_qty)
-        else:
-            logging.warning(f"Product ID {product_id} not found in inventory.")
+        previous_qty = inv_data[product_id]['quantity']
+        if inv_data[product_id]['quantity'] + qty_change < 0:
+            logging.warning(f"Insufficient stock to remove the specified quantity. Available quantity: {inv_data[product_id]['quantity']}")
+            return
+        inv_data[product_id]['quantity'] += qty_change   
+        inv_data[product_id]['last_restock'] = date.today().isoformat()
+        save_data(inv_data)
+        log_transaction('STOCK_UPDATE', product_id, qty_change, previous_qty)
     except KeyboardInterrupt:
         logging.debug("Update product operation aborted by user.")
         print('_'*40)
@@ -205,9 +202,9 @@ def update_stock():
 def search_product():
     print("\nSearching product. To abort, press Ctrl+C.")
     print('_'*40)
-    search_term = validate_search_input()
     try:
         inv_data = load_data()
+        search_term = validate_search_input()
         results = {}
         for pid, details in inv_data.items():
             if (search_term.lower() in details['name'].lower()) or (search_term.lower() in details['category'].lower()):
@@ -234,15 +231,12 @@ def delete_product():
     print("\nDeleting product. To abort, press Ctrl+C.")
     try:
         inv_data = load_data()
-        product_id = validate_product_id()
-        if product_id in inv_data:
-            change_qty = -inv_data[product_id]['quantity']
-            previous_qty = inv_data[product_id]['quantity']
-            del inv_data[product_id]
-            save_data(inv_data)
-            log_transaction('DELETE_ITEM', product_id, change_qty, previous_qty)
-        else:
-            logging.warning(f"Product ID {product_id} not found in inventory.")
+        product_id = validate_product_id(inv_data)
+        change_qty = -inv_data[product_id]['quantity']
+        previous_qty = inv_data[product_id]['quantity']
+        del inv_data[product_id]
+        save_data(inv_data)
+        log_transaction('DELETE_ITEM', product_id, change_qty, previous_qty)
     except KeyboardInterrupt:
         logging.debug("Delete product operation aborted by user.")
         print("\n*** Delete product operation aborted by user. ***")

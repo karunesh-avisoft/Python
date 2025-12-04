@@ -1,65 +1,65 @@
 {
-    "1": {
+    "101": {
         "name": "Wireless Mouse",
         "category": "Electronics",
         "quantity": 25,
         "price": 599.99,
         "last_restock": "2025-01-10"
     },
-    "2": {
+    "102": {
         "name": "A4 Notebook",
         "category": "Stationery",
         "quantity": 120,
         "price": 45.0,
         "last_restock": "2025-02-02"
     },
-    "3": {
+    "103": {
         "name": "Cotton T-Shirt",
         "category": "Clothing",
         "quantity": 60,
         "price": 299.5,
         "last_restock": "2025-01-25"
     },
-    "4": {
+    "104": {
         "name": "Chocolate Cookies",
         "category": "Food",
         "quantity": 40,
         "price": 150.0,
         "last_restock": "2025-02-11"
     },
-    "5": {
+    "105": {
         "name": "USB-C Charger",
         "category": "Electronics",
         "quantity": 15,
         "price": 899.0,
         "last_restock": "2025-01-15"
     },
-    "6": {
+    "106": {
         "name": "Ball Pen Pack (10 pcs)",
         "category": "Stationery",
         "quantity": 200,
         "price": 75.0,
         "last_restock": "2025-02-01"
     },
-    "7": {
+    "107": {
         "name": "Denim Jeans",
         "category": "Clothing",
         "quantity": 35,
         "price": 1299.0,
         "last_restock": "2025-01-28"
     },
-    "8": {
+    "108": {
         "name": "Protein Energy Bar",
         "category": "Food",
         "quantity": 50,
         "price": 99.0,
         "last_restock": "2025-02-10"
     },
-    "9": {
-        "name": "Dark Chocolate",
-        "category": "Food",
-        "quantity": 9,
-        "price": 120.0,
-        "last_restock": "2025-12-03"
+    "109": {
+        "name": "Hoody",
+        "category": "Clothing",
+        "quantity": 50,
+        "price": 850.0,
+        "last_restock": "2025-12-04"
     }
 }

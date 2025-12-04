@@ -29,3 +29,19 @@
 2025-12-03 15:43:34,168 - INFO - Inventory viewed successfully.
 2025-12-03 16:39:12,392 - INFO - Inventory viewed successfully.
 2025-12-03 16:40:11,668 - ERROR - object of type 'function' has no len()
+2025-12-04 11:11:42,896 - INFO - User initiated exit.
+2025-12-04 11:11:50,725 - INFO - Inventory viewed successfully.
+2025-12-04 11:12:06,844 - WARNING - Product ID 686 not found in inventory. Please enter a valid product ID.
+2025-12-04 11:13:25,084 - WARNING - Product ID 101 not found in inventory. Please enter a valid product ID.
+2025-12-04 11:16:28,000 - WARNING - Product ID 686 not found in inventory. Please enter a valid product ID.
+2025-12-04 11:17:44,633 - INFO - STOCK_UPDATE | Product ID: 686 | Change in Quantity(+/-): -54 | Previous Qty: 54
+2025-12-04 11:18:05,704 - INFO - Inventory viewed successfully.
+2025-12-04 11:18:16,214 - INFO - DELETE_ITEM | Product ID: 686 | Change in Quantity(+/-): 0 | Previous Qty: 0
+2025-12-04 11:18:32,503 - INFO - Inventory viewed successfully.
+2025-12-04 11:19:04,102 - INFO - NEW_ITEM | Product ID: 213 | Change in Quantity(+/-): 45 | Previous Qty: 0
+2025-12-04 11:19:16,107 - INFO - Inventory viewed successfully.
+2025-12-04 11:19:44,937 - WARNING - Product ID 686 not found in inventory. Please enter a valid product ID.
+2025-12-04 11:19:52,351 - INFO - DELETE_ITEM | Product ID: 212 | Change in Quantity(+/-): -50 | Previous Qty: 50
+2025-12-04 11:19:58,042 - INFO - DELETE_ITEM | Product ID: 213 | Change in Quantity(+/-): -45 | Previous Qty: 45
+2025-12-04 11:20:42,355 - INFO - NEW_ITEM | Product ID: 109 | Change in Quantity(+/-): 50 | Previous Qty: 0
+2025-12-04 11:20:54,219 - INFO - Inventory viewed successfully.

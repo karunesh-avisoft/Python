@@ -22,13 +22,13 @@ def validate_search_input():
             logging.warning("Search term cannot be empty or numeric. Please enter a valid name or category.")
 
 # product ID validator
-def validate_product_id():
+def validate_product_id(inventory_data):
     while True:
-        product_id = input("Enter product ID (eg. 1): ").strip()
+        product_id = input("Enter product ID (eg.101): ").strip()
         try:
             product_id = int(product_id)
-            if product_id in inventory_data:
-                return product_id
+            if str(product_id) in inventory_data:
+                return str(product_id)
             else:
                 logging.warning(f"Product ID {product_id} not found in inventory. Please enter a valid product ID.") 
         except ValueError:
