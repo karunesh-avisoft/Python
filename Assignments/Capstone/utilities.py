@@ -24,17 +24,12 @@ def validate_search_input():
 
 
 # product ID validator
-def validate_product_id(inventory_data):
+def validate_product_id():
     while True:
-        product_id = input("Enter product ID (eg. IT_6867): ").strip()
+        product_id = input("Enter product ID (eg.101): ").strip()
         try:
-            pattern = r'^IT_\d{4,}$'    # IT_6867
-            if not re.match(pattern, product_id):
-                raise ValueError("Invalid product ID format.")
-            if product_id in inventory_data:
-                return product_id
-            else:
-                logging.warning(f"Product ID {product_id} not found in inventory. Please enter a valid product ID.") 
+            product_id=int(product_id)
+            return product_id
         except ValueError:
             logging.warning("Invalid product ID format. Please enter a numeric value.")
 

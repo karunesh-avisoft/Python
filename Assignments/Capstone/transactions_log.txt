@@ -81,3 +81,9 @@
 2025-12-03 12:38:28,960 - INFO - Inventory viewed successfully.
 2025-12-03 12:38:48,841 - INFO - Exit after operations completed successfully.
 2025-12-03 13:08:06,723 - INFO - User initiated exit.
+2025-12-04 10:38:59,660 - INFO - Inventory viewed successfully.
+2025-12-04 10:39:17,896 - INFO - User initiated exit.
+2025-12-04 10:44:10,565 - INFO - Inventory viewed successfully.
+2025-12-04 10:49:10,806 - INFO - Inventory viewed successfully.
+2025-12-04 10:49:37,539 - WARNING - Product ID 686 not found in inventory. Please enter a valid product ID.
+2025-12-04 10:50:52,877 - WARNING - Product ID 212 not found in inventory. Please enter a valid product ID.

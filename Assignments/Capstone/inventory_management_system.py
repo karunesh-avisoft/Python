@@ -153,11 +153,8 @@ def add_new_product():
         product_details = validate_product_data(inv_data)
 
         # Generate unique product ID
-        product_id=str(random.randint(1,5000))
-        # Ensure unique product ID
-        while product_id in inv_data:
-            product_id=str(random.randint(1,5000))
-        product_id = "IT_" + product_id.zfill(4)  # pad with leading zeros to make it 4 digits
+        product_id=max([int(pid) for pid in inv_data.keys()], default=100)+1
+       
         # Add to inventory 
         inv_data[product_id] = product_details
         save_data(inv_data)
@@ -232,7 +229,7 @@ def delete_product():
     print("\nDeleting product. To abort, press Ctrl+C.")
     try:
         inv_data = load_data()
-        product_id = validate_product_id(inv_data)
+        product_id = validate_product_id()
         if product_id in inv_data:
             change_qty = -inv_data[product_id]['quantity']
             previous_qty = inv_data[product_id]['quantity']
