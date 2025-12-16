@@ -7,11 +7,12 @@ data={'name': 'QATester','score':85,
       ]}
 
 with open('data.json','w') as f:
-    json.dump(data,f,indent=4)
+    json.dump(data,f)
 
 with open('data.json','r') as f:
     info=json.load(f)
     print(info)
+    print(info.get('score'))
 
 # newline delimited JSON(NDJSON) for writing multiple objects in a json file
 # import json
@@ -35,22 +36,22 @@ with open('data.json','r') as f:
 #         print(obj)
 
 
-tests={
-    'suite':[
-        {'id':1,'result':'pass'},
-        {'id':2,'result':'fail'},
-        {'id':3,'result':'pass'},
-        {'id':4,'result':'fail'},
-    ]
-}
+# tests={
+#     'suite':[
+#         {'id':1,'result':'pass'},
+#         {'id':2,'result':'fail'},
+#         {'id':3,'result':'pass'},
+#         {'id':4,'result':'fail'},
+#     ]
+# }
 
-with open('tests.json','w') as f:
-    json.dump(tests,f)
+# with open('tests.json','w') as f:
+#     json.dump(tests,f)
     
-with open('tests.json', 'r') as f:
-    res=[]
-    for test in tests['suite']:
-        if test['result']=='fail':
-            res.append(test['id'])
-    print(res)
+# with open('tests.json', 'r') as f:
+#     res=[]
+#     for test in tests['suite']:
+#         if test['result']=='fail':
+#             res.append(test['id'])
+#     print(res)
     
